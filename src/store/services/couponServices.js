@@ -5,7 +5,6 @@ const couponService = createApi({
   tagTypes: "coupons",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://attractive-blazer-mite.cyclic.app/api/coupon/",
-    mode:"cors",
     prepareHeaders: (headers, { getState }) => {
       const reducers = getState();
       const token = reducers?.authReducer?.userToken;

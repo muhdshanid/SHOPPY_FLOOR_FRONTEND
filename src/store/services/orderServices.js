@@ -5,7 +5,6 @@ const orderService = createApi({
   tagTypes: "orders",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://attractive-blazer-mite.cyclic.app/api/order/",
-    mode:"cors",
     prepareHeaders: (headers, { getState }) => {
       const reducers = getState();
       const token = reducers?.authReducer?.userToken;
