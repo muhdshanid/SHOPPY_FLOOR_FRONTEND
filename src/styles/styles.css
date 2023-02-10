@@ -1,0 +1,68 @@
+.button-green{
+    @apply bg-green-900 flex w-[50%] items-center  justify-center hover:bg-gray-200 hover:text-black
+    rounded-full border border-black font-semibold text-white px-4 py-2 
+    transition ease-in-out delay-150 cursor-pointer
+    hover:-translate-y-1 hover:scale-110 
+    duration-500
+}
+
+.button-gray{
+    @apply hover:bg-green-900 bg-gray-200 text-black px-4 py-2  transition ease-in-out delay-150
+    hover:-translate-y-1 hover:scale-110 
+    duration-500 cursor-pointer
+    rounded-full border border-black font-semibold hover:text-white flex w-[50%] items-center  justify-center 
+}
+.fs-tm-tg7{
+    @apply font-semibold text-base text-gray-700
+}
+.fs-tl-tg9{
+    @apply font-semibold text-lg text-gray-900
+}
+.rl{
+    @apply rounded-lg
+}
+.rf{
+    @apply rounded-full
+}
+.bg-g-2{
+    @apply bg-gray-200
+}
+.bg-g-9{
+    @apply bg-green-900
+}
+.animation{
+    @apply  transition ease-in-out delay-150
+    hover:-translate-y-1 hover:scale-110
+}
+.fn{
+    @apply font-normal
+}
+.tw{
+    @apply text-white
+}
+.cap{
+    @apply capitalize
+}
+.tg9{
+   @apply text-green-900
+}
+.cp{
+    @apply cursor-pointer
+}
+.ic{
+   @apply items-center
+}
+.flex-ic-jb{
+    @apply flex items-center justify-between
+}
+.flex-ic{
+    @apply flex items-center
+}
+
+.tw-tb-fs{
+    @apply text-white font-semibold text-base
+}
+
+.fc{
+    @apply flex flex-col
+}

@@ -1,0 +1,22 @@
+.step-item-user {
+  @apply relative flex flex-col justify-center items-center w-36;
+}
+.step-item-user:not(:first-child):before {
+  @apply content-[''] bg-slate-200 absolute w-full h-[3px] right-2/4 top-1/3 -translate-y-2/4;
+}
+.step-user {
+  @apply w-10 h-10 flex items-center justify-center z-10 relative bg-slate-700 rounded-full font-semibold text-white;
+}
+.active-user .step-user {
+  @apply bg-sky-600;
+}
+.complete-user .step-user {
+  @apply bg-green-600;
+}
+.complete-user p {
+  @apply text-white;
+}
+.complete-user:not(:first-child):before,
+.active-user:not(:first-child):before {
+  @apply bg-green-600;
+}
