@@ -4,8 +4,11 @@ const authService = createApi({
     reducerPath:"auth",
     baseQuery:fetchBaseQuery({
         baseUrl:"https://attractive-blazer-mite.cyclic.app/api/user/",
-        prepareHeaders:(headers) => {
-            headers.set({ 'Access-Control-Allow-Origin': '*'})
+        prepareHeaders:(headers ={}) => {
+           return {
+            ...headers,
+            'Access-Control-Allow-Origin': '*',
+           }
         }
     }),
     endpoints:(builder) => {

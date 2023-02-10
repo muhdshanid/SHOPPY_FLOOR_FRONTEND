@@ -9,8 +9,7 @@ const categoryService = createApi({
       const reducers = getState();
       const token = reducers?.authReducer?.userToken;
       headers.set("authorization", token ? `Bearer ${token}` : "");
-      headers.set({ 'Access-Control-Allow-Origin': '*'})
-      return headers;
+      return {...headers,'Access-Control-Allow-Origin': '*',};
     },
   }),
   endpoints: (builder) => {
