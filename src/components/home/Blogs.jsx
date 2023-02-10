@@ -10,7 +10,7 @@ const Blogs = () => {
   useEffect(() => {
     if (isFetching === false) {
       setBlogs(data);
-      setSlicedBlogs(data.slice(0,4))
+      setSlicedBlogs(data?.slice(0,4))
     }
   }, [data, isFetching]); 
   return (

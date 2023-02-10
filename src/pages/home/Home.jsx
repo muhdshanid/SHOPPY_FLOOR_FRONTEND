@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     if (isFetching === false) {
       setCatProducts(data);
-      setSlicedProducts(data.slice(0,4))
+      setSlicedProducts(data?.slice(0,4))
     }
   }, [data, isFetching]);
   useEffect(() => {
