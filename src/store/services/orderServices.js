@@ -4,7 +4,7 @@ const orderService = createApi({
   reducerPath: "order",
   tagTypes: "orders",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/order/",
+    baseUrl: "https://attractive-blazer-mite.cyclic.app/api/order/",
     prepareHeaders: (headers, { getState }) => {
       const reducers = getState();
       const token = reducers?.authReducer?.userToken;

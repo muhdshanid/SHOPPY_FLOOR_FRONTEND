@@ -4,7 +4,7 @@ const userService = createApi({
   reducerPath: "user",
   tagTypes: "users",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/user/",
+    baseUrl: "https://attractive-blazer-mite.cyclic.app/api/user/",
     prepareHeaders: (headers, { getState }) => {
       const reducers = getState();
       const token = reducers?.authReducer?.userToken;

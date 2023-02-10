@@ -4,7 +4,7 @@ const uploadService = createApi({
   reducerPath: "upload",
   tagTypes: "uploads",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/upload/",
+    baseUrl: "https://attractive-blazer-mite.cyclic.app/api/upload/",
     prepareHeaders: (headers, { getState }) => {
       const reducers = getState();
       const token = reducers?.authReducer?.userToken;
