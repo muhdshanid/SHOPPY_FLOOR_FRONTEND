@@ -5,13 +5,15 @@ const Modal = ({state,setState,actionFunction,id,name}) => {
       {state ? (
         <>
           <div
-            className="justify-center items-center
+            className="justify-center items-center mx-8 sm:mx-auto
+            w-12/12 sm:w-12/12 md:w-8/12 lg:w-6/12
              flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-3/12 my-6 mx-auto max-w-3xl">
+            <div className="relative w-full my-6 sm:mx-auto max-w-full">
               {/*content*/}
-              <div className="border-0 
-              rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 w-12/12 sm:w-6/12
+                  rounded-lg shadow-lg relative h-full sm:mx-auto
+                  flex flex-col  bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start
                  justify-between p-5 border-b border-solid border-slate-200 rounded-t">

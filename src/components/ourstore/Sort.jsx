@@ -117,7 +117,7 @@ const Sort = ({brand,category,setBrand,setCategory,setPrice,price,setRating,rati
       </div>
         <div className='
          w-full sm:w-full mt-2  gap-4 grid grid-cols-2 sm:grid-cols-2
-         md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4  '>
+         md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3  '>
         {
           isFetching ? 
           <>

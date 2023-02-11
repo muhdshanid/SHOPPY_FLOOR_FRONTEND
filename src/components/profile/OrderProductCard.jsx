@@ -5,7 +5,7 @@ const OrderProductCard = ({ order }) => {
   const price = discount(order.productId.price, order.productId.discount);
   const totalPrice = price * order.quantities;
   return (
-    <div className="p-4 bg-white h-[50vh] rl border fc gap-4">
+    <div className="p-4 bg-white h-[30vh] rl border fc gap-4">
       <div className="sm:p-4 fc gap-4">
         <div className="flex gap-4 last:items-start first:items-center">
           <div className="bg-g-2 rl p-2">

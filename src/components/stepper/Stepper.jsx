@@ -19,7 +19,7 @@ const Stepper = ({order}) => {
   },[currentStep,order.orderStatus])
   return (
     <>
-      <div className="flex justify-between ">
+      <div className="flex gap-2 justify-between ">
         {steps?.map((step, i) => (
           <div
             key={i}

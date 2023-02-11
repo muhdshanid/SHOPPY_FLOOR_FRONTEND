@@ -39,7 +39,7 @@ const BlogDetails = () => {
           </h6>
             </div>
             <div className='flex flex-col gap-2'>
-                <img className='w-full rounded-lg h-[50vh]' src={blog?.image} alt="blog" />
+                <img className='w-full object-cover rounded-lg h-[50vh]' src={blog?.image} alt="blog" />
                 <div className='flex items-center justify-between'>
             <p className=" capitalize font-semibold  break-words text-sm text-gray-400">
                     {moment(blog?.createdAt).format("DD MMMM YYYY")}
