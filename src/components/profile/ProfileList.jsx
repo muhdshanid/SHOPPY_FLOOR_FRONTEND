@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { logout } from '../../store/reducers/authReducer'
 import { emptyCart } from '../../store/reducers/cartReducer'
-const ProfileList = () => {
+const ProfileList = ({setShow}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const logoutUser = () => {
@@ -22,18 +22,18 @@ const ProfileList = () => {
             <h6 className='fs-tl-tg9 cap'> Logout</h6>
         </div>
     </div>
-    <div className='bg-g-2 rl p-4'>
-        <Link to={"/orders"} className='flex gap-4 '>
+    <Link to={"/orders"}  onClick={()=>setShow(false)} className='bg-g-2 rl p-4'>
+        <div className='flex gap-4 '>
             <BiPackage size={30} color="green"/>
             <h6 className='fs-tl-tg9 cap'>Orders</h6>
-        </Link>
-    </div>
-    <div className='bg-g-2 rl p-4'>
-        <Link to={"/wishlist"} className='flex gap-4 '>
+        </div>
+    </Link>
+    <Link to={"/wishlist"} onClick={()=>setShow(false)} className='bg-g-2 rl p-4'>
+        <div  className='flex gap-4 '>
             <AiFillHeart size={30} color="green"/>
             <h6 className='fs-tl-tg9 cap'>Wishlist</h6>
-        </Link>
-    </div>
+        </div>
+    </Link>
     </div>
 </div>
   )

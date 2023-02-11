@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../../store/services/categoryServices';
 import CategoryPopupSkeleton from '../loading/CategoryPopupSkeleton';
 
-const CategoryListShow = () => {
+const CategoryListShow = ({setShow}) => {
     const [categories, setCategories] = useState([]);
     const { data, isFetching } = useGetCategoriesQuery();
     useEffect(() => {
@@ -36,7 +36,7 @@ const CategoryListShow = () => {
                             <div className='flex  items-start flex-col '>
                             <h6 className='font-semibold text-lg text-gray-900 capitalize'>{cat.name}</h6>
                             <p className='font-semibold underline text-sm text-gray-400'>
-                        <Link to={`/cat-products/${cat.name}`}>explore products</Link> </p>
+                        <Link onClick={()=>setShow(false)} to={`/cat-products/${cat.name}`}>explore products</Link> </p>
                             </div>
                         </div>
                     )) : ""

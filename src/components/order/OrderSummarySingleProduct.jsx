@@ -74,8 +74,8 @@ const OrderSummarySingleProduct = ({product,color,size,totalPrice,quantity,setSt
       if(isSuccess && couponDiscount === 0){
         let couponDiscount = data?.discount
         let amountAfterDiscount = total *  (couponDiscount / 100)
-        setFinalPrice(prev => prev - amountAfterDiscount)
-        setCouponDiscount(amountAfterDiscount)
+        setFinalPrice(prev => prev - amountAfterDiscount.toFixed())
+        setCouponDiscount(amountAfterDiscount.toFixed())
       }
     },[ isSuccess])
     const handlePaymentChange = (event) => {
@@ -121,9 +121,12 @@ const OrderSummarySingleProduct = ({product,color,size,totalPrice,quantity,setSt
         <p   className={`font-semibold capitalize  text-rose-600  text-sm`}
               >coupon available for COD only </p>
         </div>}
-      { isError && <div className="ml-6 -mt-4">
+        { isError && <div className="ml-6 -mt-4">
         <p   className={`font-semibold capitalize  text-rose-600  text-sm`}
-              >{data} </p>
+              >
+                {
+                  selectedPayment === "stripe" ? "coupon available for COD only" : "Invalid coupon"
+                } </p>
         </div>}
       </div>
       <div className="flex p-4 flex-col gap-10">

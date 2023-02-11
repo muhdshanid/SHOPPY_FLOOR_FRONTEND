@@ -5,7 +5,7 @@ import Sort from '../../components/ourstore/Sort'
 
 const OurStore = () => {
   const [category, setCategory] = useState("")
-  const [brand, setBrand] = useState("")
+  const [brand, setBrand] = useState("empty")
   const [price, setPrice] = useState(-1)
   const [rating, setRating] = useState(0)
   return (

@@ -24,7 +24,7 @@ const OrderSummary = ({total,cart,setStripeSelected,address}) => {
   let finalPriceWithoutFloat = Number(finalPriceWithFloat).toFixed()
   const [finalPrice, setFinalPrice] = useState(finalPriceWithoutFloat) 
   const [modalOpen, setModalOpen] = useState(false)
-  const {data,isFetching,isSuccess} = useApplyCouponQuery(coupon,{skip})
+  const {data,isFetching,isSuccess,isError} = useApplyCouponQuery(coupon,{skip})
   const applyCouponFn = () => {
     if(selectedPayment === "stripe"){
       setCouponError(true)
@@ -57,7 +57,7 @@ const OrderSummary = ({total,cart,setStripeSelected,address}) => {
       let couponDiscount = data?.discount
       let amountAfterDiscount = total *  (couponDiscount / 100)
       let amountAfterDiscountWithoutFloat = amountAfterDiscount.toFixed()
-      setFinalPrice(prev => prev - amountAfterDiscount)
+      setFinalPrice(prev => prev - amountAfterDiscount.toFixed())
       setCouponDiscount(amountAfterDiscountWithoutFloat)
     }
   },[ isSuccess])
@@ -101,6 +101,13 @@ const OrderSummary = ({total,cart,setStripeSelected,address}) => {
         { couponError && <div className="ml-6 -mt-4">
         <p   className={`font-semibold capitalize  text-rose-600  text-sm`}
               >coupon available for COD only </p>
+        </div>}
+        { isError && <div className="ml-6 -mt-4">
+        <p   className={`font-semibold capitalize  text-rose-600  text-sm`}
+              >
+                {
+                  selectedPayment === "stripe" ? "coupon available for COD only" : "Invalid coupon"
+                } </p>
         </div>}
         </div>
         <div className="flex p-4 flex-col gap-10">

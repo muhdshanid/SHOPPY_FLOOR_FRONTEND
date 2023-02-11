@@ -33,7 +33,7 @@ const HomeNav = () => {
         <AiFillCaretUp onClick={()=>setCatListShow(prev => !prev)} size={20} className="mt-1
          cp"/>}
        {catListShow && <div className='absolute z-50 top-16 left-[16rem]'>
-            <CategoryListShow/> 
+            <CategoryListShow setShow={setCatListShow}/> 
         </div>} 
         </div> 
         <Link to={"/our-store"} className='cap fs-tm-tg7 cp'>
@@ -68,7 +68,7 @@ const HomeNav = () => {
         <AiFillCaretUp onClick={()=>setProfileListShow(prev => !prev)} size={20} className="mt-1 hidden sm:flex
          cp"/>}
        {profileListShow && <div className='absolute z-50 top-10 right-6 sm:right-16 '>
-            <ProfileList/> 
+            <ProfileList setShow={setProfileListShow}/> 
         </div>}
         </div>
         : <Link to={"/login"} className=' fs-tm-tg7'>Login</Link>
