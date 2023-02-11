@@ -72,7 +72,7 @@ const Reviews = ({ id }) => {
       })
     });
     axios.all(uploaders).then((result) => {
-      if(imagesArr.length > 1){
+      if(imagesArr.length > 0){
         setImageUploading(false)
         setReviewImages(imagesArr)
       }
