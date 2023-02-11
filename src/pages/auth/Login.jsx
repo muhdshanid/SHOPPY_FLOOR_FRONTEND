@@ -8,9 +8,9 @@ const Login = () => {
   return (
     <div
       className="w-12/12  flex  px-4
-    lg:px-16 md:px-14 sm:px-8 bg-gray-100"
+    lg:px-16 md:px-14 sm:px-8 min-h-screen bg-gray-100"
     >
-      <div className="md:w-8/12 lg:w-6/12 w-12/12 sm:w-10/12   my-10 mx-auto bg-white rounded-lg">
+      <div className="md:w-8/12 lg:w-6/12 w-12/12 sm:w-10/12 h-auto  my-10 mx-auto bg-white rounded-lg">
         <div className="p-8 flex-col w-full items-center flex gap-12 justify-center">
           <div className="flex flex-col gap-4">
             <div className="flex  cursor-pointer gap-4 lg:gap-2 items-center ">

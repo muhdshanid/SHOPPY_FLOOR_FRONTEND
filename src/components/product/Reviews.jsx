@@ -19,9 +19,9 @@ import {
   useLikeReviewMutation,
   useReviewProductMutation,
 } from "../../store/services/productServices";
-import { useUploadReviewImageMutation } from "../../store/services/uploadServices";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 const Reviews = ({ id }) => {
   const navigate  = useNavigate()
   const { user } = useSelector((state) => state.authReducer);
@@ -33,38 +33,52 @@ const Reviews = ({ id }) => {
   const [warningModal, setWarningModal] = useState(false)
   const [product, setProduct] = useState({});
   const { data, isFetching, isSuccess, isLoading } = useGetProductQuery(id);
-  const [uploadImages, res] = useUploadReviewImageMutation();
   const [likeReviewMutation, response] = useLikeReviewMutation();
   const [likeQuestionMutation, result] = useLikeQuestionMutation();
-  const [reviewProd, {error,isLoading:loading}] = useReviewProductMutation();
+  const [reviewProd, {error,isLoading:loading,isSuccess:success}] = useReviewProductMutation();
   const [questionPost, ress] = useAskQuestionMutation();
   useEffect(() => {
     if (isFetching === false && isSuccess && !isLoading) {
       setProduct(data);
     }
   }, [data, isFetching, isLoading, isSuccess]);
-  useEffect(() => {
-    if (res.isSuccess) {
-      setReviewImages(res.data);
-      setImageUploading(false);
+  useEffect(()=>{
+    if(success){
+      setReviewImages([])
     }
-  }, [res?.data, res.isSuccess]);
-
+  },[success])
   const uploadReviewImages = (acceptedFiles) => {
     if(user === null){
       navigate("/login")
     }
-    const formData = new FormData();
-    // if (acceptedFiles.length > 4) {
-    //   setisFourImages(false);
-    //   return;
-    // }
-    for (let i = 0; i < acceptedFiles.length; i++) {
-      formData.append("images", acceptedFiles[i]);
-    }
-    uploadImages(formData);
     setImageUploading(true);
-  };
+    let imagesArr = []
+    const uploaders =  acceptedFiles.map(file => {
+      // Initial FormData
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("tags", `codeinfuse, medium, gist`);
+      formData.append("upload_preset", "shoppy_floor_app"); // Replace the preset name with your own
+      formData.append("api_key", "124175625519848"); // Replace API key with your own Cloudinary key
+      formData.append("timestamp", (Date.now() / 1000) | 0);
+      
+      // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+      return axios.post("https://api.cloudinary.com/v1_1/codeinfuse/image/upload", formData, {
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      }).then(response => {
+        const data = response.data;
+        const fileURL = data.secure_url
+        imagesArr.push({url:fileURL}) // You should store this URL for future references in your app
+      })
+    });
+    axios.all(uploaders).then((result) => {
+      if(imagesArr.length > 1){
+        setImageUploading(false)
+        setReviewImages(imagesArr)
+      }
+      // ... perform after upload is successful operation
+    });
+  ;}
   const reviewProduct = () => {
     if(user === null){
       navigate("/login")
