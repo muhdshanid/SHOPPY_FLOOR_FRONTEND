@@ -165,7 +165,7 @@ const OrderSummary = ({total,cart,setStripeSelected,address}) => {
                    selectedPayment === "stripe" ? total : finalPrice}</h6>
                 </div>
                 <div className="w-full">
-                <button disabled={address.fullname === ""} onClick={pay} className='button-green !w-full'> {
+                <button disabled={selectedPayment !== "stripe" &&  address.fullname === ""} onClick={pay} className='button-green !w-full'> {
                 resp?.isLoading ?
                 <>
                         <CgSpinner className="h-6 w-6 mr-2 animate-spin" />
